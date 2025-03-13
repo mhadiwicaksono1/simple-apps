@@ -9,42 +9,47 @@
 </head>
 <body>
     <img class="logo" src="./images/idn-logo.png" alt="idn-logo">
-     <h1>Belajar Devops</h1>
-     <h1>Training Devops Hari - 4</h1>
+    <h1>Belajar Devops</h1>
+    <h1>Training Devops Hari - 4</h1>
 
-     Buktikan anda bukan robot ?
-     <span id="num1"></span> + <span id="num2"></span> = <input type="text" id="hasil"> <input type="button" value="hitung" onClick="hitung()">
-     <br>
-     <br>
-     <span id="hasil_print"></span>
+    Buktikan Anda bukan robot?
+    <span id="num1"></span> + <span id="num2"></span> =
+    <input type="text" id="hasil">
+    <input type="button" value="hitung" onClick="hitung()">
+    <br><br>
+    <span id="hasil_print"></span>
+
+    <script>
+        $(document).ready(function() {
+            // Menghasilkan angka acak antara 1 hingga 100
+            var num1 = (Math.random() * 100).toFixed(2);  // Angka acak pertama
+            var num2 = (Math.random() * 100).toFixed(2);  // Angka acak kedua
+            
+            // Menampilkan angka num1 dan num2 di elemen HTML
+            document.getElementById('num1').innerHTML = num1;
+            document.getElementById('num2').innerHTML = num2;
+            
+            console.log('num1: ' + num1 + ', num2: ' + num2);
+        });
+
+        function hitung() {
+            // Mengambil nilai num1 dan num2 dari elemen HTML dan mengonversinya menjadi angka
+            var num1 = parseFloat(document.getElementById('num1').innerHTML);
+            var num2 = parseFloat(document.getElementById('num2').innerHTML);
+            
+            // Mengambil nilai yang dimasukkan oleh pengguna untuk hasil
+            var hasil = parseFloat(document.getElementById('hasil').value);
+            
+            // Menjumlahkan num1 dan num2 untuk mendapatkan hasil yang benar
+            var hasil_asli = num1 + num2;
+            
+            // Membandingkan hasil yang dimasukkan dengan hasil yang benar
+            if (hasil === hasil_asli) {
+                document.getElementById('hasil_print').innerHTML = 'Benar';
+            } else {
+                document.getElementById('hasil_print').innerHTML = 'Salah';
+            }
+        }
+    </script>
 </body>
-<script>
-    $(document).ready(function() {
-    var num1 = Math.random();
-    var num2 = Math.random();
-    
-    // Menampilkan angka num1 dan num2 di elemen HTML
-    document.getElementById('num1').innerHTML = num1;
-    document.getElementById('num2').innerHTML = num2;
-});
-
-function hitung() {
-    // Mengambil nilai num1 dan num2 dari elemen HTML
-    var num1 = parseFloat(document.getElementById('num1').innerHTML);
-    var num2 = parseFloat(document.getElementById('num2').innerHTML);
-    
-    // Mengambil nilai yang dimasukkan oleh pengguna untuk hasil
-    var hasil = parseFloat(document.getElementById('hasil').value);
-    
-    // Menjumlahkan num1 dan num2 untuk mendapatkan hasil yang benar
-    var hasil_asli = num1 + num2;
-    
-    // Membandingkan hasil yang dimasukkan dengan hasil yang benar
-    if (hasil === hasil_asli) {
-        document.getElementById('hasil_print').innerHTML = 'Benar';
-    } else {
-        document.getElementById('hasil_print').innerHTML = 'Salah';
-    }
-}
-</script>
 </html>
